@@ -1,0 +1,55 @@
+<form [formGroup]="form" (submit)="onSend(form)">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <input type="text" class="form-control input-sm" formControlName="nickname" placeholder="Nickname" minlength="4"
+          maxlength="40" autofocus>
+        <span *ngIf="!form.get('nickname').valid && form.get('nickname').touched" class="help-block">This field is
+          required!</span>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <input type="number" class="form-control input-sm" formControlName="phone" placeholder="Phone number">
+        <span *ngIf="!form.get('phone').valid && form.get('phone').touched" class="help-block">Please enter valid phone
+          number!</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8">
+      <div class="form-group">
+        <input type="email" class="form-control input-sm" formControlName="email" placeholder="Email Address">
+        <span *ngIf="!form.get('email').valid && form.get('email').touched" class="help-block">Please enter valid
+          E-mail!</span>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4">
+      <div class="form-group">
+        <select formControlName="country" class="browser-default custom-select">
+          <option>--Country--</option>
+          <option *ngFor="let country of countries" [ngValue]="country">{{country}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <input type="password" class="form-control input-sm" formControlName="password" placeholder="Password">
+        <span *ngIf="!form.get('password').valid && form.get('password').touched" class="help-block">Min length of
+          password is 4 letters!</span>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <input type="password" class="form-control input-sm" formControlName="confirm" placeholder="Confirm Password">
+        <span *ngIf="!form.get('confirm').valid && form.get('confirm').touched" class="help-block">This field is
+          required!</span>
+        <span *ngIf="form.get('confirm').touched && form.get('confirm')!==form.get('password')"
+          class="help-block">Passwords do not match!</span>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">{{buttonName}}</button> 
+</form>

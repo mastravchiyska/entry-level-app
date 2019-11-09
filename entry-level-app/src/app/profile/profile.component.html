@@ -1,0 +1,13 @@
+<div class="row center-container">
+  <div class="offset-md-2 col-sm-8">
+    <div class="card">
+      <div class="log-reg-form-title">
+        <h3>User Profile</h3>
+      </div>
+      <div class="card-body">
+        <app-user-form [userData]="user" [isEmailDisabled]="true" [buttonName]="'Update'" (onSubmit)="onUpdate($event)"></app-user-form>
+        <button class="logout btn btn-primary" (click)="logout()">Log out</button>
+      </div>
+    </div>
+  </div>
+</div>
